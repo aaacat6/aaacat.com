@@ -1,0 +1,84 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-decoration: none;
+}
+
+.container {
+    text-align: center;
+}
+
+.entry-footer {
+    margin-top: 1em;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1em; /* Adjust spacing between icons */
+}
+
+.social-icons a {
+    color: #d3d3d3; /* Light gray color */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Adjust size as needed */
+    height: 40px; /* Adjust size as needed */
+}
+
+.social-icons svg {
+    width: 80%;
+    height: 80%;
+    fill: none; /* Ensure no fill color */
+    stroke: currentColor; /* Use the color defined in the parent */
+}
+
+.logo {
+    width: 200px; /* Adjust the size as needed */
+    height: 200px; /* Ensure the logo is a square */
+    border-radius: 50%; /* Make the logo circular */
+    object-fit: cover; /* Ensure the logo covers the entire area */
+    margin-bottom: 1em;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 0.2em;
+    /* text-shadow: 0 0 5px white; */
+}
+
+nav {
+    margin-top: 2em;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0.5em 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    padding: 0.5em 1em;
+    display: inline-block;
+    width: 150px; /* Set a fixed width */
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: white;
+    color: black;
+}
