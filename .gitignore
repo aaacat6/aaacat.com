@@ -1,0 +1,30 @@
+# 项目特有
+
+# 资源文件
+logs/
+data/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.so
+.env
+.venv/
+venv/
+ENV/
+
+# 其他
+.DS_Store  # Mac
+Thumbs.db  # Windows
