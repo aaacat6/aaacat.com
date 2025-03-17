@@ -1,13 +1,68 @@
 body {
     background-color: black;
     color: white;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Poppins', 'Montserrat', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
     text-decoration: none;
+    animation: fadeIn 1s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 添加动态背景 */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(125deg, #000000, #1a0033, #000066, #003366, #000033, #4a0072, #6600cc);
+    background-size: 400% 400%;
+    z-index: -1;
+    animation: gradientBG 15s ease infinite;
+    opacity: 0.8;
+}
+
+/* 添加几何装饰元素 */
+body::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 20%),
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 30%),
+        radial-gradient(circle at 80% 10%, rgba(102, 0, 204, 0.1) 0%, transparent 15%);
+    z-index: -1;
+    animation: floatingShapes 20s ease-in-out infinite alternate;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes floatingShapes {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-10px) scale(1.05); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
 .container {
@@ -25,12 +80,31 @@ body {
 }
 
 .social-icons a {
-    color: #d3d3d3; /* Light gray color */
+    color: #d3d3d3;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px; /* Adjust size as needed */
-    height: 40px; /* Adjust size as needed */
+    width: 40px;
+    height: 40px;
+    transition: all 0.3s ease;
+    animation: socialIconsFloat 1s ease-in-out;
+    position: relative;
+    z-index: 1;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2) translateY(-5px);
+    color: white;
+    filter: drop-shadow(0 0 8px rgba(102, 0, 204, 0.6));
+}
+
+.social-icons a:nth-child(1):hover { color: #1DA1F2; }
+.social-icons a:nth-child(2):hover { color: #0088cc; }
+.social-icons a:nth-child(3):hover { color: #EA4335; }
+
+@keyframes socialIconsFloat {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
 }
 
 .social-icons svg {
@@ -41,44 +115,156 @@ body {
 }
 
 .logo {
-    width: 200px; /* Adjust the size as needed */
-    height: 200px; /* Ensure the logo is a square */
-    border-radius: 50%; /* Make the logo circular */
-    object-fit: cover; /* Ensure the logo covers the entire area */
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
     margin-bottom: 1em;
+    animation: logoRotate 20s linear infinite, logoPulse 3s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+@keyframes logoRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes logoPulse {
+    0% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); }
+    50% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.4); }
+    100% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); }
 }
 
 h1 {
     font-size: 2em;
     margin-bottom: 0.2em;
-    /* text-shadow: 0 0 5px white; */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    letter-spacing: 2px;
+    font-weight: 600;
+    background: linear-gradient(90deg, #ffffff, #a855f7, #6366f1, #ffffff);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: textGradient 8s ease infinite;
 }
 
-nav {
+@keyframes textGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+nav.bot-links {
     margin-top: 2em;
 }
 
-nav ul {
+.bot-links ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
 }
 
-nav ul li {
-    margin: 0.5em 0;
-}
-
-nav ul li a {
+.bot-link {
     text-decoration: none;
     color: white;
-    border: 1px solid white;
-    padding: 0.5em 1em;
-    display: inline-block;
-    width: 150px; /* Set a fixed width */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: slideIn 0.5s ease-out backwards;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    width: 280px;
     box-sizing: border-box;
-    transition: background-color 0.3s, color 0.3s;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
 }
 
-nav ul li a:hover {
-    background-color: white;
-    color: black;
+.chat-bot {
+    border-left: 3px solid rgba(102, 0, 204, 0.7);
+}
+
+.monitor-bot {
+    border-left: 3px solid rgba(0, 204, 153, 0.7);
+}
+
+.bot-link:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.chat-bot:hover {
+    box-shadow: 0 5px 15px rgba(102, 0, 204, 0.3);
+    border-left-color: rgba(102, 0, 204, 1);
+}
+
+.monitor-bot:hover {
+    box-shadow: 0 5px 15px rgba(0, 204, 153, 0.3);
+    border-left-color: rgba(0, 204, 153, 1);
+}
+
+.bot-icon {
+    font-size: 1.5em;
+    margin-right: 1em;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.bot-link:hover .bot-icon {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.bot-name {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 0.2em;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.bot-link:hover .bot-name {
+    color: #a855f7;
+}
+
+.monitor-bot:hover .bot-name {
+    color: #00cc99;
+}
+
+.bot-desc {
+    font-size: 0.85em;
+    color: rgba(255, 255, 255, 0.7);
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.bot-link:hover .bot-desc {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.bot-link::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.bot-link:hover::after {
+    left: 100%;
 }
