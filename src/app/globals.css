@@ -1,26 +1,188 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground-rgb: 255, 255, 255;
+  --background-rgb: 0, 0, 0;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+  font-family: var(--font-poppins);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 1s ease-out;
+}
+
+/* 动态背景 */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(125deg, #000000, #1a0033, #000066, #003366, #000033, #4a0072, #6600cc);
+  background-size: 400% 400%;
+  z-index: -1;
+  animation: gradientBG 15s ease infinite;
+  opacity: 0.8;
+}
+
+/* 几何装饰元素 */
+body::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 20%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 30%),
+    radial-gradient(circle at 80% 10%, rgba(102, 0, 204, 0.1) 0%, transparent 15%);
+  z-index: -1;
+  animation: floatingShapes 20s ease-in-out infinite alternate;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes floatingShapes {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-10px) scale(1.05); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes socialIconsFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes logoRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes logoPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes textGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@layer base {
+  h1 {
+    @apply text-[3em] font-semibold mb-[0.5em] tracking-[2px]; /* 调整字体大小、粗细、间距 */
+  }
+}
+
+@layer components {
+  .social-icon {
+    @apply text-gray-300 inline-flex items-center justify-center w-10 h-10 transition-all duration-300 relative z-[1]; /* 确保大小为 40px */
+    animation: socialIconsFloat 2s ease-in-out infinite; /* 应用原始动画 */
+  }
+  
+  .social-icon:hover {
+    transform: scale(1.2) translateY(-5px); /* 保持原始 transform */
+    filter: drop-shadow(0 0 8px rgba(102, 0, 204, 0.6));
+    /* 特定的颜色在 page.tsx 中处理或用 :nth-child 添加 */
+  }
+  .social-icon.x-icon:hover { @apply text-[#1DA1F2]; }
+  .social-icon.tg-icon:hover { @apply text-[#0088cc]; }
+  .social-icon.email-icon:hover { @apply text-[#EA4335]; }
+
+  .bot-card {
+    @apply flex items-center px-6 py-4 rounded-[10px] text-left /* 调整内边距和圆角 */
+           border border-white/10 
+           transition-all duration-300 transform relative overflow-hidden;
+    background: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    animation: slideIn 0.5s ease-out backwards; /* 添加卡片自身的 slideIn 动画 */
+  }
+
+  /* 延迟不同卡片的动画 */
+  .bot-card:nth-child(1) { animation-delay: 0.2s; }
+  .bot-card:nth-child(2) { animation-delay: 0.4s; }
+
+  .bot-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  /* 特定机器人的悬停边框颜色 */
+  .bot-card.chat-bot:hover { border-color: #00c6ff; }
+  .bot-card.monitor-bot:hover { border-color: #39ff14; }
+
+  .bot-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    transition: 0.5s;
+  }
+
+  .bot-card:hover::after {
+    left: 100%;
+  }
+
+  .bot-icon {
+    @apply text-2xl mr-4 transition-transform duration-300; /* 增加右边距 */
+  }
+
+  .bot-card:hover .bot-icon {
+    transform: scale(1.2) rotate(10deg);
+  }
+
+  .bot-name {
+    @apply block font-semibold text-[1.1em] text-[#f0f0f0] mb-[0.2em] transition-colors duration-300;
+  }
+
+  .bot-desc {
+    @apply block text-[0.9em] text-[#a0a0a0] transition-colors duration-300;
+  }
+
+  /* 特定机器人的悬停名称颜色 */
+  .bot-card.chat-bot:hover .bot-name { color: #00c6ff; }
+  .bot-card.monitor-bot:hover .bot-name { color: #39ff14; }
+
+  .bot-card:hover .bot-desc {
+    @apply text-[#d0d0d0];
+  }
 }
