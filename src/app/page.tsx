@@ -15,7 +15,7 @@ export default function Home() {
       {/* 使用星星背景组件 */}
       <StarsBackground />
       
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 mt-8">
         <div className="flex flex-col items-center animate-fade-in">
           <div className="relative mb-6">
             <Image
