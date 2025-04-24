@@ -19,7 +19,7 @@ export default function Home() {
         <div className="flex flex-col items-center animate-fade-in">
           <div className="relative mb-6">
             <Image
-              src="https://aaacat.com/a.jpg"
+              src="https://images.aaacat.com/a.jpg"
               alt="Logo"
               width={200}
               height={200}
