@@ -6,7 +6,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'aaacat-com.oss-cn-hangzhou.aliyuncs.com',
+        hostname: 'aaacat.com',
       },
     ],
   },
