@@ -14,19 +14,19 @@ body {
 }
 
 /* 添加动态背景 */
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(125deg, #000000, #1a0033, #000066, #003366, #000033, #4a0072, #6600cc);
-    background-size: 400% 400%;
-    z-index: -1;
-    animation: gradientBG 15s ease infinite;
-    opacity: 0.8;
-}
+/*body::before {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    background: linear-gradient(125deg, #000000, #1a0033, #000066, #003366, #000033, #4a0072, #6600cc);*/
+/*    background-size: 400% 400%;*/
+/*    z-index: -1;*/
+/*    animation: gradientBG 15s ease infinite;*/
+/*    opacity: 0.8;*/
+/*}*/
 
 /* 添加几何装饰元素 */
 body::after {

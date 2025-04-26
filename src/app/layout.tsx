@@ -1,24 +1,24 @@
 import type { Metadata } from "next";
-import { Poppins, Montserrat } from "next/font/google";
+import React from "react";
 import "./globals.css";
+import { Zain } from 'next/font/google'
+import { ThemeProvider } from "@/components/theme-provider";
+import ThemeToggle from "@/components/theme-toggle";
 
-const poppins = Poppins({
-  weight: ['300', '400', '600'],
-  subsets: ['latin'],
-  variable: '--font-poppins',
-});
+const zain = Zain({
+  subsets: ['latin'],             // 字体子集
+  weight: ['400'],  // 字重选项
+  display: 'swap',                // 字体显示策略
+  variable: '--font-zain',     // CSS 变量名（可选）
+  fallback: ['Arial', 'Helvetica', 'sans-serif'] // 字体回退链
+})
 
-const montserrat = Montserrat({
-  weight: ['300', '400', '600'],
-  subsets: ['latin'],
-  variable: '--font-montserrat',
-});
 
 export const metadata: Metadata = {
   title: "AAACAT",
-  description: "AAACAT - AI Chat Assistant and Blockchain Metrics Monitor",
+  description: "AAACAT - WEB3",
   icons: {
-    icon: "https://aaacat-com.oss-cn-hangzhou.aliyuncs.com/202406140504305.png",
+    icon: "https://images.aaacat.com/a.jpg",
   },
 };
 
@@ -28,8 +28,20 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${poppins.variable} ${montserrat.variable}`}>{children}</body>
+    <html lang="en" suppressHydrationWarning className="dark">
+      <body className={`${zain.className} text-2xl bg-white text-black dark:bg-black dark:text-white`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <header className="flex justify-end p-4">
+            <ThemeToggle />
+          </header>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
