@@ -3,7 +3,6 @@ import React from "react";
 import "./globals.css";
 import { Zain } from 'next/font/google'
 import { ThemeProvider } from "@/components/theme-provider";
-import ThemeToggle from "@/components/theme-toggle";
 
 const zain = Zain({
   subsets: ['latin'],             // 字体子集
@@ -36,9 +35,6 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <header className="flex justify-end p-4">
-            <ThemeToggle />
-          </header>
           {children}
         </ThemeProvider>
       </body>

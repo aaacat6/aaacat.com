@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button"
+import {Button} from "@/components/ui/button"
 import Link from "next/link";
 
-export function NavButton() {
+export function ButtonTelegramBot() {
     return (
         <nav className="flex flex-col space-y-8 w-full sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/5 max-w-xs mx-auto">
             <Button
@@ -38,8 +38,8 @@ export function NavButton() {
                     </div>
                 </Link>
             </Button>
-
         </nav>
+
 
     )
 }
