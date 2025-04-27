@@ -69,17 +69,17 @@ export default function Home() {
                     </Link>
                 </nav>
 
-                <nav className="flex flex-col space-y-8 w-1/5">
+                <nav className="flex flex-col space-y-8 w-full sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/5 max-w-xs mx-auto">
                     <Link
                         href="https://t.me/arbor_chat_bot"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-1 transition duration-300 hover:scale-110 p-3 bg-gray-200 dark:bg-gray-800 rounded-3xl"
                     >
-                    <span className="text-2xl">🤖</span>
-                        <div className="flex flex-col items-center w-full">
-                            <span className="font-bold">Arbor Chat</span>
-                            <span className="text-sm">AI Chat Assistant</span>
+                        <span className="text-2xl flex-shrink-0">🤖</span>
+                        <div className="flex flex-col items-center w-full overflow-hidden">
+                            <span className="font-bold truncate w-full text-center">Arbor Chat</span>
+                            <span className="text-sm truncate w-full text-center">AI Chat Assistant</span>
                         </div>
                     </Link>
                     <Link
@@ -88,10 +88,10 @@ export default function Home() {
                         rel="noopener noreferrer"
                         className="flex items-center gap-1 transition duration-300 hover:scale-110 p-3 bg-gray-200 dark:bg-gray-800 rounded-3xl"
                     >
-                        <span className="text-2xl">📊</span>
-                        <div className="flex flex-col items-center w-full ">
-                            <span className="font-bold">Arbor Monitor</span>
-                            <span className="text-sm">Blockchain Metrics Monitor</span>
+                        <span className="text-2xl flex-shrink-0">📊</span>
+                        <div className="flex flex-col items-center w-full overflow-hidden">
+                            <span className="font-bold truncate w-full text-center">Arbor Monitor</span>
+                            <span className="text-sm truncate w-full text-center">Blockchain Metrics Monitor</span>
                         </div>
                     </Link>
                 </nav>

@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className="dark">
+    <html lang="en" suppressHydrationWarning >
       <body className={`${zain.className} text-2xl bg-white text-black dark:bg-black dark:text-white`}>
         <ThemeProvider
           attribute="class"
