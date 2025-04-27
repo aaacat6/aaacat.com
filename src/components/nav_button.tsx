@@ -6,7 +6,7 @@ export function NavButton() {
         <nav className="flex flex-col space-y-8 w-full sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/5 max-w-xs mx-auto">
             <Button
                 variant="outline"
-                className="rounded-3xl h-auto p-0 border-2 border-gray-300 transition duration-300 hover:scale-110 dark:bg-gray-800 dark:border-gray-700"
+                className="rounded-3xl h-auto p-0 border-2 border-gray-300 transition duration-300 hover:scale-110 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-900 dark:hover:text-white"
             >
                 <Link
                     href="https://t.me/arbor_chat_bot"
@@ -23,7 +23,7 @@ export function NavButton() {
             </Button>
             <Button
                 variant="outline"
-                className="rounded-3xl h-auto p-0 border-2 border-gray-300 transition duration-300 hover:scale-110 dark:bg-gray-800 dark:border-gray-700"
+                className="rounded-3xl h-auto p-0 border-2 border-gray-300 transition duration-300 hover:scale-110 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-900 dark:hover:text-white"
             >
                 <Link
                     href="https://t.me/arbor_monitor_bot"
