@@ -1,13 +1,19 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import {Rubik_Puddles} from 'next/font/google'
+import {Frijole} from 'next/font/google'
 import React from "react";
 
-const rubikPuddles = Rubik_Puddles({
+// const rubikPuddles = Rubik_Puddles({
+//     subsets: ['latin'],             // 字体子集
+//     weight: ['400'],  // 字重选项
+//     display: 'swap',                // 字体显示策略
+//     variable: '--font-rubikPuddles',     // CSS 变量名（可选）
+// })
+
+const frijole = Frijole({
     subsets: ['latin'],             // 字体子集
     weight: ['400'],  // 字重选项
     display: 'swap',                // 字体显示策略
-    variable: '--font-rubikPuddles',     // CSS 变量名（可选）
 })
 
 export default function Home() {
@@ -25,7 +31,7 @@ export default function Home() {
                     />
                 </div>
 
-                <h1 className={`${rubikPuddles.className} text-6xl font-bold mb-8`}>AAACAT</h1>
+                <h1 className={`${frijole.className} text-5xl font-bold mb-8`}>AAACAT</h1>
 
                 <nav className="flex space-x-8 mb-10">
                     <Link
