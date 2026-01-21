@@ -52,6 +52,7 @@ export function ButtonSocial() {
                     rel="noopener noreferrer"
                     className={`transition duration-300 hover:scale-110 ${link.className || ""}`.trim()}
                     title={link.title}
+                    aria-label={link.title}
                 >
                     {link.icon}
                 </Link>
