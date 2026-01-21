@@ -1,0 +1,5 @@
+
+> next_temp@0.1.0 dev
+> next dev -p 8080
+
+sh: 1: next: not found

@@ -11,6 +11,7 @@ export function ButtonSocial() {
                 rel="noopener noreferrer"
                 className="transition duration-300 hover:scale-110"
                 title="X"
+                aria-label="X"
             >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                      className="w-8 h-8">
@@ -24,6 +25,7 @@ export function ButtonSocial() {
                 rel="noopener noreferrer"
                 className="social-icon tg-icon transition duration-300 hover:scale-110"
                 title="Telegram"
+                aria-label="Telegram"
             >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                      strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
@@ -37,6 +39,7 @@ export function ButtonSocial() {
                 rel="noopener noreferrer"
                 className="social-icon email-icon transition duration-300 hover:scale-110"
                 title="Email"
+                aria-label="Email"
             >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 21" fill="none" stroke="currentColor"
                      strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
