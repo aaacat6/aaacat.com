@@ -6,12 +6,14 @@ type SocialLink = {
     title: string;
     className?: string;
     icon: React.ReactNode;
+    ariaLabel?: string;
 };
 
 const SOCIAL_LINKS: SocialLink[] = [
     {
         href: "https://x.com/aaacat666",
         title: "X",
+        ariaLabel: "Visit AAACAT on X",
         icon: (
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
@@ -21,6 +23,7 @@ const SOCIAL_LINKS: SocialLink[] = [
     {
         href: "https://t.me/aaacat666/",
         title: "Telegram",
+        ariaLabel: "Contact AAACAT on Telegram",
         className: "social-icon tg-icon",
         icon: (
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
@@ -31,6 +34,7 @@ const SOCIAL_LINKS: SocialLink[] = [
     {
         href: "mailto:aaacat666@gmail.com",
         title: "Email",
+        ariaLabel: "Send email to AAACAT",
         className: "social-icon email-icon",
         icon: (
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 21" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
@@ -52,7 +56,7 @@ export function ButtonSocial() {
                     rel="noopener noreferrer"
                     className={`transition duration-300 hover:scale-110 ${link.className || ""}`.trim()}
                     title={link.title}
-                    aria-label={link.title}
+                    aria-label={link.ariaLabel || link.title}
                 >
                     {link.icon}
                 </Link>
