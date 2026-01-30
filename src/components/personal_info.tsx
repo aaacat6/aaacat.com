@@ -13,7 +13,7 @@ export function PersonalInfo() {
         <div className="flex flex-col items-center justify-center ">
             <div className="mb-6">
                 <Image
-                    src="https://images.aaacat.com/a.jpg"
+                    src="/a.jpg"
                     alt="Logo"
                     width={200}
                     height={200}
