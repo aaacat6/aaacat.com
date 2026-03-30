@@ -12,7 +12,7 @@ const frijole = Frijole({
 const FEATURES = [
     {
         title: "监控用户名",
-        description: "追踪指定的 Telegram 用户名，实时捕获其在公开频道和群组中的消息。",
+        description: "追踪指定的 X 用户名，实时捕获其公开发布的推文和动态。",
         icon: (
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                  strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
@@ -23,7 +23,7 @@ const FEATURES = [
     },
     {
         title: "监控关键词",
-        description: "设置自定义关键词，在频道和群组中过滤并收集相关消息。",
+        description: "设置自定义关键词，在 X 上过滤并收集包含相关内容的推文。",
         icon: (
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                  strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
@@ -78,7 +78,7 @@ export default function ArborXPage() {
                         Arbor X
                     </h1>
                     <p className="text-base text-muted-foreground max-w-md leading-relaxed mb-6">
-                        一个 Telegram 机器人，可监控频道中的用户名和关键词，
+                        一个 Telegram 机器人，可监控 X 上的用户名和关键词，
                         并通过 AI 生成每日摘要推送给你，所有操作均在 Telegram 内完成。
                     </p>
                     <Link
@@ -123,8 +123,8 @@ export default function ArborXPage() {
                         <div className="flex flex-col gap-4">
                             {[
                                 {step: "01", text: "在 Telegram 中搜索并打开 @arbor_x_bot"},
-                                {step: "02", text: "配置你想要监控的用户名或关键词"},
-                                {step: "03", text: "机器人会自动追踪公开频道中的相关消息"},
+                                {step: "02", text: "配置你想要监控的 X 用户名或关键词"},
+                                {step: "03", text: "机器人会自动追踪 X 上的相关推文和动态"},
                                 {step: "04", text: "每天收到一份包含关键要点和洞察的总结"},
                             ].map((item) => (
                                 <div key={item.step} className="flex items-start gap-4">

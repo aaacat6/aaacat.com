@@ -12,7 +12,7 @@ const PROJECTS: Project[] = [
     {
         href: "/arbor-x",
         title: "Arbor X",
-        description: "Telegram 机器人，监控用户名和关键词，每日推送 AI 总结。",
+        description: "Telegram 机器人，监控 X 上的用户名和关键词，每日推送 AI 总结。",
         icon: (
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                  strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
