@@ -119,20 +119,22 @@ export default function ArborXPage() {
                 {/* 使用流程 */}
                 <div className="mb-16">
                     <h2 className="text-lg font-semibold mb-6 text-center">使用流程</h2>
-                    <div className="flex flex-col items-center gap-4">
-                        {[
-                            {step: "01", text: "在 Telegram 中搜索并打开 @arbor_x_bot"},
-                            {step: "02", text: "配置你想要监控的用户名或关键词"},
-                            {step: "03", text: "机器人会自动追踪公开频道中的相关消息"},
-                            {step: "04", text: "每天收到一份包含关键要点和洞察的总结"},
-                        ].map((item) => (
-                            <div key={item.step} className="flex items-center gap-4">
-                                <span className="text-sm font-mono text-muted-foreground shrink-0">
-                                    {item.step}
-                                </span>
-                                <p className="text-base">{item.text}</p>
-                            </div>
-                        ))}
+                    <div className="flex justify-center">
+                        <div className="flex flex-col gap-4">
+                            {[
+                                {step: "01", text: "在 Telegram 中搜索并打开 @arbor_x_bot"},
+                                {step: "02", text: "配置你想要监控的用户名或关键词"},
+                                {step: "03", text: "机器人会自动追踪公开频道中的相关消息"},
+                                {step: "04", text: "每天收到一份包含关键要点和洞察的总结"},
+                            ].map((item) => (
+                                <div key={item.step} className="flex items-start gap-4">
+                                    <span className="text-sm font-mono text-muted-foreground shrink-0 mt-0.5 w-6">
+                                        {item.step}
+                                    </span>
+                                    <p className="text-base">{item.text}</p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
