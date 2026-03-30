@@ -12,7 +12,7 @@ const PROJECTS: Project[] = [
     {
         href: "/arbor-x",
         title: "Arbor X",
-        description: "Telegram bot for monitoring usernames & keywords with daily AI summaries.",
+        description: "Telegram 机器人，监控用户名和关键词，每日推送 AI 总结。",
         icon: (
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                  strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -26,7 +26,7 @@ const PROJECTS: Project[] = [
 export function ProjectList() {
     return (
         <div className="w-full max-w-md px-6 mb-10">
-            <h2 className="text-sm text-muted-foreground mb-4 text-center tracking-widest uppercase">Projects</h2>
+            <h2 className="text-sm text-muted-foreground mb-4 text-center tracking-widest uppercase">项目</h2>
             <div className="flex flex-col gap-3">
                 {PROJECTS.map((project) => (
                     <Link
