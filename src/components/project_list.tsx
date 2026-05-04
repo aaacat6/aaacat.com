@@ -21,6 +21,21 @@ const PROJECTS: Project[] = [
             </svg>
         ),
     },
+    {
+        href: "https://echo.arborm.com/",
+        title: "Echo 回响",
+        description: "iOS 应用，把天气、城市与生活片刻化作诗意提醒。",
+        icon: (
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                <path d="M3 12h2"/>
+                <path d="M7 8v8"/>
+                <path d="M11 5v14"/>
+                <path d="M15 8v8"/>
+                <path d="M19 11v2"/>
+            </svg>
+        ),
+    },
 ];
 
 export function ProjectList() {
@@ -28,10 +43,13 @@ export function ProjectList() {
         <div className="w-full max-w-md px-6 mb-10">
             <h2 className="text-sm text-muted-foreground mb-4 text-center tracking-widest uppercase">项目</h2>
             <div className="flex flex-col gap-3">
-                {PROJECTS.map((project) => (
+                {PROJECTS.map((project) => {
+                    const isExternal = /^https?:\/\//.test(project.href);
+                    return (
                     <Link
                         key={project.title}
                         href={project.href}
+                        {...(isExternal ? {target: "_blank", rel: "noopener noreferrer"} : {})}
                         className="flex items-center gap-4 border border-border rounded-lg px-5 py-4 hover:bg-accent/50 transition-colors duration-200 group"
                     >
                         <div className="text-foreground shrink-0">
@@ -47,7 +65,8 @@ export function ProjectList() {
                             <polyline points="9 18 15 12 9 6"/>
                         </svg>
                     </Link>
-                ))}
+                    );
+                })}
             </div>
         </div>
     );
