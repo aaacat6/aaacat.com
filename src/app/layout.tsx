@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "AAACAT",
   description: "AAACAT - WEB3",
   icons: {
-    icon: "/a.jpg",
+    icon: "/favicon.png",
   },
 };
 

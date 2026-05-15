@@ -22,7 +22,7 @@ const PROJECTS: Project[] = [
         ),
     },
     {
-        href: "https://echo.arborm.com/",
+        href: "https://echo.arborm.co/",
         title: "Echo 回响",
         description: "iOS 应用，把天气、城市与生活片刻化作诗意提醒。",
         icon: (
