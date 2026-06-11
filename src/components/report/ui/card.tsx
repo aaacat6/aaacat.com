@@ -1,0 +1,69 @@
+import { cn } from "@/lib/utils";
+
+export function Card({
+  className,
+  children,
+  size = "default",
+}: {
+  className?: string;
+  children: React.ReactNode;
+  size?: "default" | "sm";
+}) {
+  return (
+    <div
+      className={cn(
+        "rounded-xl border border-border bg-card text-card-foreground",
+        size === "sm" && "text-sm",
+        className
+      )}
+    >
+      {children}
+    </div>
+  );
+}
+
+export function CardHeader({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) {
+  return <div className={cn("px-4 pt-4", className)}>{children}</div>;
+}
+
+export function CardTitle({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <h4 className={cn("font-semibold leading-none tracking-tight", className)}>
+      {children}
+    </h4>
+  );
+}
+
+export function CardDescription({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <p className={cn("text-sm text-muted-foreground", className)}>{children}</p>
+  );
+}
+
+export function CardContent({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) {
+  return <div className={cn("px-4 pb-4", className)}>{children}</div>;
+}

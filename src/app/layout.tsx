@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import React from "react";
 import "./globals.css";
-import { Zain } from 'next/font/google'
-import { ThemeProvider } from "@/components/theme-provider";
+import { Zain } from "next/font/google";
 
 const zain = Zain({
-  subsets: ['latin'],             // 字体子集
-  weight: ['400'],  // 字重选项
-  display: 'swap',                // 字体显示策略
-  variable: '--font-zain',     // CSS 变量名（可选）
-  fallback: ['Arial', 'Helvetica', 'sans-serif'] // 字体回退链
-})
-
+  subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
+  variable: "--font-zain",
+  fallback: ["Arial", "Helvetica", "sans-serif"],
+});
 
 export const metadata: Metadata = {
   title: "AAACAT",
@@ -24,19 +23,15 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning >
-      <body className={`${zain.className} text-2xl bg-white text-black dark:bg-black dark:text-white`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+    <html lang="zh-CN" suppressHydrationWarning>
+      <body
+        className={`${zain.className} min-h-screen bg-background text-2xl text-foreground antialiased`}
+      >
+        <Script src="/theme.js" strategy="beforeInteractive" />
+        {children}
       </body>
     </html>
   );

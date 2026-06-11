@@ -2,6 +2,7 @@ import React from "react";
 import {ButtonSocial} from "@/components/button_social";
 import {PersonalInfo} from "@/components/personal_info";
 import {Header} from "@/components/header"
+import {InvestEntry} from "@/components/invest_entry";
 import {ProjectList} from "@/components/project_list";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
             <div className="flex flex-col items-center justify-center ">
                 <PersonalInfo/>
                 <ButtonSocial/>
+                <InvestEntry/>
                 <ProjectList/>
             </div>
         </div>
