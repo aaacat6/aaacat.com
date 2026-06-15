@@ -67,10 +67,13 @@ export function parseActionBadge(conclusion: string, decisions: { label: string;
   const action = decisions.find((item) => item.label === "动作")?.body ?? "";
   const actionShort = action.split(/[；;，,]/)[0]?.trim();
 
-  const verdictMatch = conclusion.match(/^([^：:]+[）)]?)/);
-  const verdict = verdictMatch?.[1]?.trim() ?? "观察";
+  const prefixMatch = conclusion.match(/^([^：:]+[）)]?)\s*[：:]\s*/);
+  const verdict = prefixMatch?.[1]?.trim() ?? "观察";
+  const conclusionBody = prefixMatch
+    ? conclusion.slice(prefixMatch[0].length).trim()
+    : conclusion.trim();
 
-  return { verdict, actionBadge: actionShort || "观察" };
+  return { verdict, actionBadge: actionShort || "观察", conclusionBody };
 }
 
 export function splitSectionBody(section: InvestSection) {

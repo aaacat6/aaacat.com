@@ -11,12 +11,14 @@ export function HeroSection({
   quoteDate,
   verdict,
   actionBadge,
+  conclusionBody,
 }: {
   doc: InvestDoc;
   stats: ReportStat[];
   quoteDate?: string;
   verdict: string;
   actionBadge: string;
+  conclusionBody: string;
 }) {
   const ticker = doc.meta.target.match(/（([^）]+)）/)?.[1];
 
@@ -60,7 +62,7 @@ export function HeroSection({
                   </Badge>
                 </div>
                 <p className="text-sm leading-relaxed text-amber-900/90 dark:text-amber-100/90 sm:text-[15px]">
-                  {doc.meta.conclusion.replace(/^[^：:]+[）)]?\s*/, "")}
+                  {conclusionBody}
                 </p>
               </div>
             </div>

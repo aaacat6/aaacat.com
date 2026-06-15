@@ -22,7 +22,7 @@ export function ReportPage({ doc }: { doc: InvestDoc }) {
     ? splitSectionBody(judgmentSection)
     : { intro: "", decisions: [], body: "" };
 
-  const { verdict, actionBadge } = parseActionBadge(
+  const { verdict, actionBadge, conclusionBody } = parseActionBadge(
     doc.meta.conclusion,
     judgment.decisions
   );
@@ -45,6 +45,7 @@ export function ReportPage({ doc }: { doc: InvestDoc }) {
             quoteDate={quoteDate}
             verdict={verdict}
             actionBadge={actionBadge}
+            conclusionBody={conclusionBody}
           />
 
           {judgmentSection && (
