@@ -1,9 +1,5 @@
 import ThemeToggle from "@/components/theme-toggle";
-import Link from "next/link";
 import React from "react";
-
-const navLinkClass =
-  "text-sm text-muted-foreground transition-colors hover:text-foreground";
 
 export function Header({ nav }: { nav?: React.ReactNode }) {
   return (
@@ -13,19 +9,5 @@ export function Header({ nav }: { nav?: React.ReactNode }) {
         <ThemeToggle />
       </div>
     </header>
-  );
-}
-
-export function InvestNav() {
-  return (
-    <>
-      <Link href="/" className={navLinkClass}>
-        返回首页
-      </Link>
-      <span className="text-border">/</span>
-      <Link href="/invest" className={navLinkClass}>
-        所有研报
-      </Link>
-    </>
   );
 }
