@@ -36,6 +36,18 @@ const PROJECTS: Project[] = [
             </svg>
         ),
     },
+    {
+        href: "https://lp.aaacat.com/",
+        title: "Uniswap LP 盈亏计算器",
+        description: "计算 Uniswap LP 仓位盈亏，当前仅支持 Robinhood Chain。",
+        icon: (
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                <path d="M3 3v18h18"/>
+                <path d="m7 16 4-5 4 3 5-7"/>
+            </svg>
+        ),
+    },
 ];
 
 export function ProjectList() {
