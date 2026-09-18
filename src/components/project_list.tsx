@@ -5,6 +5,7 @@ type Project = {
     href: string;
     title: string;
     description: string;
+    type: "Telegram Bot" | "App" | "Web";
     icon: React.ReactNode;
 };
 
@@ -13,6 +14,7 @@ const PROJECTS: Project[] = [
         href: "/arbor-x",
         title: "Arbor X",
         description: "Telegram 机器人，监控 X 上的用户名和关键词，每日推送 AI 总结。",
+        type: "Telegram Bot",
         icon: (
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                  strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -25,6 +27,7 @@ const PROJECTS: Project[] = [
         href: "https://echo.arborm.co/",
         title: "Echo 回响",
         description: "iOS 应用，把天气、城市与生活片刻化作诗意提醒。",
+        type: "App",
         icon: (
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                  strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -38,8 +41,9 @@ const PROJECTS: Project[] = [
     },
     {
         href: "https://lp.aaacat.com/",
-        title: "Uniswap LP 盈亏计算器",
+        title: "PoolPal",
         description: "计算 Uniswap LP 仓位盈亏，当前仅支持 Robinhood Chain。",
+        type: "Web",
         icon: (
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                  strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -52,31 +56,35 @@ const PROJECTS: Project[] = [
 
 export function ProjectList() {
     return (
-        <div className="w-full max-w-md px-6 mb-10">
-            <h2 className="text-sm text-muted-foreground mb-4 text-center tracking-widest uppercase">项目</h2>
-            <div className="flex flex-col gap-3">
+        <div className="w-full max-w-5xl px-6 mb-10">
+            <h2 className="mb-5 text-center text-2xl font-bold tracking-wider">项目</h2>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-4">
                 {PROJECTS.map((project) => {
                     const isExternal = /^https?:\/\//.test(project.href);
                     return (
-                    <Link
-                        key={project.title}
-                        href={project.href}
-                        {...(isExternal ? {target: "_blank", rel: "noopener noreferrer"} : {})}
-                        className="flex items-center gap-4 border border-border rounded-lg px-5 py-4 hover:bg-accent/50 transition-colors duration-200 group"
-                    >
-                        <div className="text-foreground shrink-0">
-                            {project.icon}
-                        </div>
-                        <div className="flex-1 min-w-0">
-                            <h3 className="text-base font-semibold">{project.title}</h3>
-                            <p className="text-sm text-muted-foreground leading-snug">{project.description}</p>
-                        </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                             strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                             className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors duration-200 shrink-0">
-                            <polyline points="9 18 15 12 9 6"/>
-                        </svg>
-                    </Link>
+                        <section key={project.type} className="flex flex-col">
+                            <h3 className="mb-3 text-xl font-semibold tracking-tight">
+                                {project.type}
+                            </h3>
+                            <Link
+                                href={project.href}
+                                {...(isExternal ? {target: "_blank", rel: "noopener noreferrer"} : {})}
+                                className="flex flex-1 items-center gap-4 border border-border rounded-lg px-5 py-4 hover:bg-accent/50 transition-colors duration-200 group"
+                            >
+                                <div className="text-foreground shrink-0">
+                                    {project.icon}
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                    <h4 className="text-lg font-semibold">{project.title}</h4>
+                                    <p className="text-base text-muted-foreground leading-relaxed">{project.description}</p>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                     strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                                     className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors duration-200 shrink-0">
+                                    <polyline points="9 18 15 12 9 6"/>
+                                </svg>
+                            </Link>
+                        </section>
                     );
                 })}
             </div>
