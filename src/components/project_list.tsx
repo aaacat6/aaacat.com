@@ -40,7 +40,7 @@ const PROJECTS: Project[] = [
         ),
     },
     {
-        href: "https://lp.aaacat.com/",
+        href: "https://poolpal.aaacat.com",
         title: "PoolPal",
         description: "计算 Uniswap LP 仓位盈亏，当前仅支持 Robinhood Chain。",
         type: "Web",
